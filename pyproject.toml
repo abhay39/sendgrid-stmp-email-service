@@ -4,16 +4,16 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "sendgrid-email-service"
-version = "0.1.0"
+version = "0.0.1"
 description = "A modern Python SDK for sending transactional and marketing emails via SMTP with Jinja2 templates, structured logging, and robust error handling."
 readme = "README.md"
 requires-python = ">=3.9"
 license = "MIT"
 authors = [
-    {name = "FireCompass", email = "engineering@firecompass.com"}
+    {name = "Abhay Kumar Gupta", email = "abhayguptaak39@gmail.com"}
 ]
 maintainers = [
-    {name = "FireCompass Team", email = "engineering@firecompass.com"}
+    {name = "Abhay Kumar Gupta", email = "abhayguptaak39@gmail.com"}
 ]
 keywords = [
     "email",
@@ -54,9 +54,9 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/firecompass/sendgrid-email-service"
-Repository = "https://github.com/firecompass/sendgrid-email-service"
-Issues = "https://github.com/firecompass/sendgrid-email-service/issues"
+Homepage = "https://github.com/abhay39/sendgrid-stmp-email-service"
+Repository = "https://github.com/abhay39/sendgrid-stmp-email-service"
+Issues = "https://github.com/abhay39/sendgrid-stmp-email-service/issues"
 
 [tool.setuptools.packages.find]
 where = ["src"]
