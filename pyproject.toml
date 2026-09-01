@@ -1,0 +1,65 @@
+[build-system]
+requires = ["setuptools>=77.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sendgrid-email-service"
+version = "0.1.0"
+description = "A modern Python SDK for sending transactional and marketing emails via SMTP with Jinja2 templates, structured logging, and robust error handling."
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+authors = [
+    {name = "FireCompass", email = "engineering@firecompass.com"}
+]
+maintainers = [
+    {name = "FireCompass Team", email = "engineering@firecompass.com"}
+]
+keywords = [
+    "email",
+    "smtp",
+    "sendgrid",
+    "templates",
+    "jinja2",
+    "mailer",
+    "sdk",
+    "transactional-email"
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Communications :: Email",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Typing :: Typed",
+]
+dependencies = [
+    "Jinja2>=3.1.0,<4.0.0",
+    "python-dotenv>=1.0.0,<2.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-mock>=3.12.0",
+    "build>=1.0.0",
+    "twine>=5.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/firecompass/sendgrid-email-service"
+Repository = "https://github.com/firecompass/sendgrid-email-service"
+Issues = "https://github.com/firecompass/sendgrid-email-service/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+sendgrid_email_service = ["templates/*.html", "py.typed"]
