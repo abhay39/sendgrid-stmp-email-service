@@ -1,5 +1,6 @@
 # sendgrid-email-service
 
+
 [![PyPI version](https://img.shields.io/pypi/v/sendgrid-email-service.svg)](https://pypi.org/project/sendgrid-email-service/)
 [![Python Versions](https://img.shields.io/pypi/pyversions/sendgrid-email-service.svg)](https://pypi.org/project/sendgrid-email-service/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
