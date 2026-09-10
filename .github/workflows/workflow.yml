@@ -77,7 +77,6 @@ jobs:
     name: Publish to PyPI
     runs-on: ubuntu-latest
     needs: build
-    if: startsWith(github.ref, 'refs/tags/v') || (github.event_name == 'workflow_dispatch')
     environment:
       name: pypi
       url: https://pypi.org/p/sendgrid-email-service
