@@ -79,7 +79,7 @@ jobs:
     needs: build
     environment:
       name: pypi
-      url: https://pypi.org/p/sendgrid-email-service
+      url: https://pypi.org/p/sendgrid-stmp-email-service
     permissions:
       id-token: write # Required for PyPI Trusted Publishing (OIDC)
 
