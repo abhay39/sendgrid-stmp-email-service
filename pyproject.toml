@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "sendgrid-email-service"
-version = "0.0.2"
+version = "0.0.3"
 description = "A modern Python SDK for sending transactional and marketing emails via SMTP with Jinja2 templates, structured logging, and robust error handling."
 readme = "README.md"
 requires-python = ">=3.9"
