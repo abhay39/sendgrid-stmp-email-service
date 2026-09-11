@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "sendgrid-email-service"
-version = "0.0.1"
+version = "0.0.2"
 description = "A modern Python SDK for sending transactional and marketing emails via SMTP with Jinja2 templates, structured logging, and robust error handling."
 readme = "README.md"
 requires-python = ">=3.9"
@@ -15,6 +15,19 @@ authors = [
 maintainers = [
     {name = "Abhay Kumar Gupta", email = "abhayguptaak39@gmail.com"}
 ]
+
+Owner:
+abhay39
+
+Repository name:
+sendgrid-stmp-email-service
+
+Workflow name:
+pypi_workflow.yml
+
+Environment name:
+pypi
+
 keywords = [
     "email",
     "smtp",
