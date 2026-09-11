@@ -8,7 +8,8 @@ import sendgrid_email_service
 
 def test_package_version() -> None:
     assert hasattr(sendgrid_email_service, "__version__")
-    assert sendgrid_email_service.__version__ == "0.0.1"
+    assert sendgrid_email_service.__version__ == "0.0.2"
+
 
 
 def test_package_exports() -> None:
