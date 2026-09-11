@@ -88,9 +88,9 @@ class EmailClient:
         if template:
             logger.debug("Rendering template '%s' for outgoing email...", template)
             rendered_html = self.renderer.render(template, data or {})
-
-        if html:
-            rendered_html=self.renderer.render(html,data)
+        elif html and data:
+            logger.debug("Rendering inline HTML string template for outgoing email...")
+            rendered_html = self.renderer.render_string(html, data)
             
         email = EmailMessage(
             to=to if isinstance(to, list) else list(to) if isinstance(to, (tuple, set)) else [to],

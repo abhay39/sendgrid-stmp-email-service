@@ -78,3 +78,25 @@ def test_template_syntax_error_handling(tmp_path: Path) -> None:
     renderer = TemplateRenderer(template_directory=custom_dir)
     with pytest.raises(EmailTemplateError, match="Syntax error in template"):
         renderer.render("broken", {})
+
+
+def test_render_string_success() -> None:
+    renderer = TemplateRenderer()
+    output = renderer.render_string(
+        "<h1>Hello {{ name }}</h1><p>Token: {{ token }}</p>",
+        {"name": "Bob", "token": "xyz123"},
+    )
+    assert output == "<h1>Hello Bob</h1><p>Token: xyz123</p>"
+
+
+def test_render_string_syntax_error() -> None:
+    renderer = TemplateRenderer()
+    with pytest.raises(EmailTemplateError, match="Syntax error in template string"):
+        renderer.render_string("<h1>Hello {% if unclosed_tag }}</h1>", {})
+
+
+def test_render_string_invalid_type() -> None:
+    renderer = TemplateRenderer()
+    with pytest.raises(EmailTemplateError, match="Template source must be a string"):
+        renderer.render_string(12345, {})  # type: ignore[arg-type]
+

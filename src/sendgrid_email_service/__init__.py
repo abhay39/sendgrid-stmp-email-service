@@ -29,7 +29,7 @@ from .transport.smtp import SMTPTransport
 # Set up NullHandler for library logging according to PEP 282
 logging.getLogger("sendgrid_email_service").addHandler(logging.NullHandler())
 
-__version__ = "0.0.1"
+__version__ = "0.0.2"
 
 __all__ = [
     "EmailClient",

@@ -78,3 +78,42 @@ def test_client_validation_error_on_empty_recipients(
         client.send(to=[], subject="Test", body="Body")
 
     mock_transport.send.assert_not_called()
+
+
+def test_client_send_raw_html(mock_transport: MagicMock, sample_config: EmailConfig) -> None:
+    client = EmailClient(config=sample_config, transport=mock_transport)
+
+    raw_html = "<html><body><h1>Hello World</h1></body></html>"
+    client.send(
+        to="user@example.com",
+        subject="Raw HTML Test",
+        html=raw_html,
+    )
+
+    mock_transport.send.assert_called_once()
+    sent_email: EmailMessage = mock_transport.send.call_args[0][0]
+    assert sent_email.to == ["user@example.com"]
+    assert sent_email.subject == "Raw HTML Test"
+    assert sent_email.html == raw_html
+
+
+def test_client_send_html_with_data_template(mock_transport: MagicMock, sample_config: EmailConfig) -> None:
+    client = EmailClient(config=sample_config, transport=mock_transport)
+
+    html_template = "<html><body><p>Token: {{ verification_token }}, Year: {{ year }}</p></body></html>"
+    client.send(
+        to="user@example.com",
+        subject="Account verification",
+        html=html_template,
+        data={
+            "verification_token": "abc-123-xyz",
+            "year": 2026,
+        },
+    )
+
+    mock_transport.send.assert_called_once()
+    sent_email: EmailMessage = mock_transport.send.call_args[0][0]
+    assert sent_email.to == ["user@example.com"]
+    assert sent_email.subject == "Account verification"
+    assert "Token: abc-123-xyz, Year: 2026" in (sent_email.html or "")
+

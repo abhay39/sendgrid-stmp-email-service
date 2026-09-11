@@ -126,3 +126,56 @@ class TemplateRenderer:
                 message=msg,
                 template_name=template_name,
             ) from exc
+
+    def render_string(
+        self,
+        source: str,
+        data: Mapping[str, Any] | None = None,
+    ) -> str:
+        """Render an in-memory HTML template string with the given context data.
+
+        Args:
+            source: Raw HTML template string containing Jinja2 syntax or static HTML.
+            data: Context dictionary passed into the template.
+
+        Returns:
+            str: Rendered HTML string.
+
+        Raises:
+            EmailTemplateError: If the template string has syntax errors or fails rendering.
+        """
+        if not isinstance(source, str):
+            raise EmailTemplateError("Template source must be a string.")
+
+        context = dict(data or {})
+        logger.debug("Rendering inline template string with context keys: %s", list(context.keys()))
+
+        try:
+            template = self.environment.from_string(source)
+            rendered = template.render(**context)
+            logger.debug("Successfully rendered template string (output length: %d bytes).", len(rendered))
+            return rendered
+
+        except jinja2.exceptions.TemplateSyntaxError as exc:
+            msg = f"Syntax error in template string at line {exc.lineno}: {exc.message}"
+            logger.error(msg)
+            raise EmailTemplateError(
+                message=msg,
+                template_name="<string>",
+            ) from exc
+
+        except jinja2.exceptions.TemplateError as exc:
+            msg = f"Failed to render template string: {exc}"
+            logger.error(msg)
+            raise EmailTemplateError(
+                message=msg,
+                template_name="<string>",
+            ) from exc
+
+        except Exception as exc:
+            msg = f"Unexpected error while rendering template string: {exc}"
+            logger.error(msg)
+            raise EmailTemplateError(
+                message=msg,
+                template_name="<string>",
+            ) from exc
