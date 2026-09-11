@@ -16,17 +16,6 @@ maintainers = [
     {name = "Abhay Kumar Gupta", email = "abhayguptaak39@gmail.com"}
 ]
 
-Owner:
-abhay39
-
-Repository name:
-sendgrid-stmp-email-service
-
-Workflow name:
-pypi_workflow.yml
-
-Environment name:
-pypi
 
 keywords = [
     "email",
