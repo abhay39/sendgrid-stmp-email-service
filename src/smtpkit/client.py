@@ -1,4 +1,4 @@
-"""Client module for sendgrid_email_service SDK.
+"""Client module for smtpkit SDK.
 
 Provides the primary user-facing EmailClient class for configuring, rendering,
 and dispatching emails.

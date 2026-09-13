@@ -3,8 +3,8 @@ requires = ["setuptools>=77.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "sendgrid-email-service"
-version = "0.0.3"
+name = "smtpkit"
+version = "0.1.1"
 description = "A modern Python SDK for sending transactional and marketing emails via SMTP with Jinja2 templates, structured logging, and robust error handling."
 readme = "README.md"
 requires-python = ">=3.9"
@@ -18,12 +18,13 @@ maintainers = [
 
 
 keywords = [
+    "smtpkit",
     "email",
     "smtp",
-    "sendgrid",
+    "mailer",
     "templates",
     "jinja2",
-    "mailer",
+    "sendgrid",
     "sdk",
     "transactional-email"
 ]
@@ -64,4 +65,4 @@ Issues = "https://github.com/abhay39/sendgrid-stmp-email-service/issues"
 where = ["src"]
 
 [tool.setuptools.package-data]
-sendgrid_email_service = ["templates/*.html", "py.typed"]
+smtpkit = ["templates/*.html", "py.typed"]

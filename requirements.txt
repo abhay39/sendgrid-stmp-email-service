@@ -27,6 +27,6 @@ requests==2.34.2
 requests-toolbelt==1.0.0
 rfc3986==2.0.0
 rich==15.0.0
--e git+https://github.com/fc-abhay/sendgrid-email-service.git@3648afa3bc8c3f2f6bf1935cbf38dbc1b58925a5#egg=sendgrid_email_service
+-e .
 twine==7.0.0
 urllib3==2.7.0

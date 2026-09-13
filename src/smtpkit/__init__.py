@@ -1,6 +1,6 @@
-"""SendGrid Email Service SDK.
+"""smtpkit - Modern Python SMTP Email SDK.
 
-A modern, robust Python SDK for sending transactional and marketing emails
+A robust Python SDK for sending transactional and marketing emails
 via SMTP with built-in Jinja2 templating, structured logging, and comprehensive
 error handling.
 """
@@ -27,9 +27,9 @@ from .template.renderer import TemplateRenderer
 from .transport.smtp import SMTPTransport
 
 # Set up NullHandler for library logging according to PEP 282
-logging.getLogger("sendgrid_email_service").addHandler(logging.NullHandler())
+logging.getLogger("smtpkit").addHandler(logging.NullHandler())
 
-__version__ = "0.0.2"
+__version__ = "0.1.1"
 
 __all__ = [
     "EmailClient",

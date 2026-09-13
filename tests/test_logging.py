@@ -6,12 +6,12 @@ import logging
 from unittest.mock import MagicMock, patch
 
 import pytest
-from sendgrid_email_service import EmailClient, EmailConfig, SMTPTransport
-from sendgrid_email_service.models import EmailMessage
+from smtpkit import EmailClient, EmailConfig, SMTPTransport
+from smtpkit.models import EmailMessage
 
 
 def test_top_level_logger_has_null_handler() -> None:
-    pkg_logger = logging.getLogger("sendgrid_email_service")
+    pkg_logger = logging.getLogger("smtpkit")
     handlers = [h for h in pkg_logger.handlers if isinstance(h, logging.NullHandler)]
     assert len(handlers) >= 1
 
@@ -32,7 +32,7 @@ def test_logging_during_smtp_send(caplog: pytest.LogCaptureFixture) -> None:
         body="Message body",
     )
 
-    with caplog.at_level(logging.DEBUG, logger="sendgrid_email_service"):
+    with caplog.at_level(logging.DEBUG, logger="smtpkit"):
         with patch("smtplib.SMTP") as mock_smtp_cls:
             mock_server = MagicMock()
             mock_smtp_cls.return_value.__enter__.return_value = mock_server
@@ -53,7 +53,7 @@ def test_config_logging_does_not_leak_password(caplog: pytest.LogCaptureFixture,
     monkeypatch.setenv("EMAIL_SMTP_PASSWORD", "ultra_sensitive_token_999")
     monkeypatch.setenv("EMAIL_FROM", "alert@prod.com")
 
-    with caplog.at_level(logging.DEBUG, logger="sendgrid_email_service"):
+    with caplog.at_level(logging.DEBUG, logger="smtpkit"):
         EmailConfig.from_env()
 
     log_text = caplog.text

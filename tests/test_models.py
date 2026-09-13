@@ -3,8 +3,8 @@
 from __future__ import annotations
 
 import pytest
-from sendgrid_email_service.exceptions import EmailValidationError
-from sendgrid_email_service.models import EmailMessage
+from smtpkit.exceptions import EmailValidationError
+from smtpkit.models import EmailMessage
 
 
 def test_valid_email_message_creation() -> None:

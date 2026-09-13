@@ -4,8 +4,8 @@ from __future__ import annotations
 
 from pathlib import Path
 import pytest
-from sendgrid_email_service.exceptions import EmailTemplateError
-from sendgrid_email_service.template.renderer import TemplateRenderer
+from smtpkit.exceptions import EmailTemplateError
+from smtpkit.template.renderer import TemplateRenderer
 
 
 def test_default_templates_rendering() -> None:

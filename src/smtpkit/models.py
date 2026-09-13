@@ -1,4 +1,4 @@
-"""Data models for sendgrid_email_service SDK.
+"""Data models for smtpkit SDK.
 
 Defines the core EmailMessage model with recipient normalization and validation.
 """

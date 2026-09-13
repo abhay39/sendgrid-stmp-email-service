@@ -1,1 +1,1 @@
-"""Test suite for sendgrid_email_service package."""
+"""Test suite for smtpkit package."""

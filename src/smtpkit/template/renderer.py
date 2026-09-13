@@ -1,4 +1,4 @@
-"""Template rendering module for sendgrid_email_service SDK.
+"""Template rendering module for smtpkit SDK.
 
 Uses Jinja2 to render HTML email templates with comprehensive error handling,
 contextual error messages, and logging.

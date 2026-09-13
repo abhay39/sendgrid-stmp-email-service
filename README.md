@@ -1,19 +1,18 @@
-# sendgrid-email-service
+# smtpkit
 
-
-[![PyPI version](https://img.shields.io/pypi/v/sendgrid-email-service.svg)](https://pypi.org/project/sendgrid-email-service/)
-[![Python Versions](https://img.shields.io/pypi/pyversions/sendgrid-email-service.svg)](https://pypi.org/project/sendgrid-email-service/)
+[![PyPI version](https://img.shields.io/pypi/v/smtpkit.svg)](https://pypi.org/project/smtpkit/)
+[![Python Versions](https://img.shields.io/pypi/pyversions/smtpkit.svg)](https://pypi.org/project/smtpkit/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Type Checked: typed](https://img.shields.io/badge/typing-typed-blue.svg)](https://www.python.org/dev/peps/pep-0561/)
 
-A modern, production-ready Python SDK for sending transactional and marketing emails via SMTP (including SendGrid SMTP relays) with built-in Jinja2 templating, structured logging, secure credential handling, and comprehensive exception management.
+**smtpkit** is a modern, production-ready Python SDK for sending transactional and marketing emails via SMTP (including SendGrid, Amazon SES, Mailgun, Postmark, Gmail, Mailpit, or custom SMTP relays) with built-in Jinja2 templating, structured logging, secure credential handling, and comprehensive exception management.
 
 ---
 
 ## Features
 
-- 🚀 **Production-Grade Delivery**: Reliable SMTP transport supporting TLS encryption, authentication, and timeouts.
-- 🎨 **Built-in & Custom Jinja2 Templates**: Comes with responsive pre-built templates (`welcome`, `reset_password`, `verify_account`) and allows custom template directories.
+- 🚀 **Universal SMTP Transport**: Reliable SMTP delivery supporting TLS encryption, authentication, and timeouts across any SMTP provider.
+- 🎨 **Built-in & Custom Jinja2 Templates**: Pre-built responsive HTML templates (`welcome`, `reset_password`, `verify_account`) with support for custom template directories.
 - 🪵 **Enterprise Logging**: PEP 282 compliant logging with `NullHandler` by default, granular log levels (`DEBUG`, `INFO`, `ERROR`), and automatic password masking.
 - 🛡️ **Comprehensive Exception Hierarchy**: Clear, actionable exceptions for validation, templates, authentication, connection timeouts, and delivery errors.
 - ⚙️ **Flexible Configuration**: Seamlessly configure via `.env` files, environment variables, or typed `EmailConfig` objects.
@@ -26,7 +25,7 @@ A modern, production-ready Python SDK for sending transactional and marketing em
 Install via `pip`:
 
 ```bash
-pip install sendgrid-email-service
+pip install smtpkit
 ```
 
 ---
@@ -42,7 +41,7 @@ Create a `.env` file in your project root or set environment variables:
 EMAIL_SMTP_HOST=smtp.sendgrid.net
 EMAIL_SMTP_PORT=587
 EMAIL_SMTP_USERNAME=apikey
-EMAIL_SMTP_PASSWORD=your-sendgrid-api-key
+EMAIL_SMTP_PASSWORD=your-smtp-api-key
 
 # Sender Defaults
 EMAIL_FROM=notifications@yourdomain.com
@@ -56,7 +55,7 @@ EMAIL_TIMEOUT=30
 ### 2. Send Plain Text or HTML Email
 
 ```python
-from sendgrid_email_service import EmailClient
+from smtpkit import EmailClient
 
 # Automatically loads configuration from .env / environment variables
 client = EmailClient()
@@ -73,7 +72,7 @@ client.send(
 
 ## Working with Templates
 
-`sendgrid-email-service` includes responsive, production-ready HTML templates out of the box.
+`smtpkit` includes responsive, production-ready HTML templates out of the box.
 
 ### Built-in Templates
 
@@ -86,7 +85,7 @@ client.send(
 ### Example: Sending a Template Email
 
 ```python
-from sendgrid_email_service import EmailClient
+from smtpkit import EmailClient
 
 client = EmailClient()
 
@@ -109,7 +108,7 @@ You can point `EmailClient` to your own Jinja2 template directory:
 
 ```python
 from pathlib import Path
-from sendgrid_email_service import EmailClient
+from smtpkit import EmailClient
 
 client = EmailClient(template_directory=Path("./my_custom_templates"))
 
@@ -132,7 +131,7 @@ client.send(
 Instead of environment variables, you can configure the client directly using `EmailConfig`:
 
 ```python
-from sendgrid_email_service import EmailClient, EmailConfig
+from smtpkit import EmailClient, EmailConfig
 
 config = EmailConfig(
     smtp_host="smtp.sendgrid.net",
@@ -170,7 +169,7 @@ EmailError (Base)
 
 ```python
 import logging
-from sendgrid_email_service import (
+from smtpkit import (
     EmailClient,
     EmailAuthenticationError,
     EmailConnectionError,
@@ -221,7 +220,7 @@ except EmailError as e:
 
 ## Logging Configuration
 
-`sendgrid-email-service` adheres to Python library best practices (PEP 282). By default, it emits no logs unless your application configures logging.
+`smtpkit` adheres to Python library best practices (PEP 282). By default, it emits no logs unless your application configures logging.
 
 ### Example: Enabling Logs in Your Application
 
@@ -236,8 +235,8 @@ logging.basicConfig(
     handlers=[logging.StreamHandler(sys.stdout)],
 )
 
-# Enable DEBUG logging specifically for sendgrid_email_service
-logging.getLogger("sendgrid_email_service").setLevel(logging.DEBUG)
+# Enable DEBUG logging specifically for smtpkit
+logging.getLogger("smtpkit").setLevel(logging.DEBUG)
 ```
 
 > **Security Guarantee**: Passwords and sensitive credentials are automatically masked (e.g. `***`) and are never written to log files.
@@ -300,4 +299,3 @@ pytest tests/ -v
 ## License
 
 Distributed under the [MIT License](LICENSE).
-# sendgrid-stmp-email-service

@@ -1,4 +1,4 @@
-"""Exceptions module for sendgrid_email_service SDK.
+"""Exceptions module for smtpkit SDK.
 
 Provides a clean and structured exception hierarchy for handling configuration,
 validation, template rendering, and delivery errors.

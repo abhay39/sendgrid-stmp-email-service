@@ -1,4 +1,4 @@
-"""SMTP transport implementation for sendgrid_email_service SDK.
+"""SMTP transport implementation for smtpkit SDK.
 
 Handles SMTP connection lifecycle, TLS negotiation, authentication, message construction,
 and granular exception handling with structured logging.

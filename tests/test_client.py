@@ -5,10 +5,10 @@ from __future__ import annotations
 from unittest.mock import MagicMock
 
 import pytest
-from sendgrid_email_service.client import EmailClient
-from sendgrid_email_service.config import EmailConfig
-from sendgrid_email_service.exceptions import EmailValidationError
-from sendgrid_email_service.models import EmailMessage
+from smtpkit.client import EmailClient
+from smtpkit.config import EmailConfig
+from smtpkit.exceptions import EmailValidationError
+from smtpkit.models import EmailMessage
 
 
 @pytest.fixture

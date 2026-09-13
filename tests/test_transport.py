@@ -7,8 +7,8 @@ import socket
 from unittest.mock import MagicMock, patch
 
 import pytest
-from sendgrid_email_service.config import EmailConfig
-from sendgrid_email_service.exceptions import (
+from smtpkit.config import EmailConfig
+from smtpkit.exceptions import (
     EmailAuthenticationError,
     EmailConnectionError,
     EmailRecipientsRefusedError,
@@ -16,8 +16,8 @@ from sendgrid_email_service.exceptions import (
     EmailTimeoutError,
     EmailValidationError,
 )
-from sendgrid_email_service.models import EmailMessage
-from sendgrid_email_service.transport.smtp import SMTPTransport
+from smtpkit.models import EmailMessage
+from smtpkit.transport.smtp import SMTPTransport
 
 
 @pytest.fixture

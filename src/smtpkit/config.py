@@ -1,4 +1,4 @@
-"""Configuration module for sendgrid_email_service SDK.
+"""Configuration module for smtpkit SDK.
 
 Provides strongly typed configuration management with environment variable loading,
 input validation, secure credential masking, and structured logging.

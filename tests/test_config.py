@@ -4,8 +4,8 @@ from __future__ import annotations
 
 import os
 import pytest
-from sendgrid_email_service.config import EmailConfig
-from sendgrid_email_service.exceptions import EmailConfigurationError
+from smtpkit.config import EmailConfig
+from smtpkit.exceptions import EmailConfigurationError
 
 
 def test_valid_config_init() -> None:
